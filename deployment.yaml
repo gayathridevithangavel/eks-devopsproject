@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-devops-project
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eks-devops-project
+  template:
+    metadata:
+      labels:
+        app: eks-devops-project
+    spec:
+      containers:
+      - name: app
+        image: 632295790019.dkr.ecr.ap-south-1.amazonaws.com/eks-devops-project:latest
+        ports:
+        - containerPort: 3000
